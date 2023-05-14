@@ -1,0 +1,23 @@
+{
+  "name": "poc-photos-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joaqu1m/poc-photos-api.git"
+  },
+  "author": "joaqu1m",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joaqu1m/poc-photos-api/issues"
+  },
+  "homepage": "https://github.com/joaqu1m/poc-photos-api#readme",
+  "dependencies": {
+    "googleapis": "^118.0.0"
+  }
+}
