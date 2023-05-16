@@ -1,0 +1,44 @@
+<input type="file">
+<button onclick="upload()">vai</button>
+
+
+<script>
+
+    function upload() {
+        const fd = new FormData();
+        const urlEncoded = new URLSearchParams(fd).toString()
+        const fileField = document.querySelector('input[type="file"]');
+
+        fd.append("username", "abc123");
+        fd.append("avatar", fileField.files[0]);
+
+        console.log(fd)
+
+        fetch("http://localhost:3000/imagem", {
+            method: "POST",
+            files: fd
+        })
+        .then(response => response.formData())
+        .then((res) => {
+            console.log(res)
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+    }
+
+
+    fetch("http://localhost:3000/pegar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            opa: 1
+        })
+    })
+    .then(res => res.json())
+    .then((res) => {
+        console.log(res)
+    })
+</script>
