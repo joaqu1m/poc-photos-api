@@ -1,16 +1,18 @@
-<input type="file">
+<input type="file" id="fileInput">
 <button onclick="upload()">vai</button>
 
 
 <script>
 
     function upload() {
+        const fileInput = document.getElementById('fileInput');
+        const file = fileInput.files[0];
         const fd = new FormData();
-        const urlEncoded = new URLSearchParams(fd).toString()
-        const fileField = document.querySelector('input[type="file"]');
+        // const urlEncoded = new URLSearchParams(fd).toString()
+        // const fileField = document.querySelector('input[type="file"]');
 
         fd.append("username", "abc123");
-        fd.append("avatar", fileField.files[0]);
+        fd.append("avatar", file);
 
         console.log(fd)
 
@@ -18,7 +20,7 @@
             method: "POST",
             files: fd
         })
-        .then(response => response.formData())
+        .then(response => response.text())
         .then((res) => {
             console.log(res)
         })
